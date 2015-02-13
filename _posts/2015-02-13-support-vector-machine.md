@@ -17,7 +17,7 @@ tags: []
 
 满足以上条件的分类器会有很多(亦即得到的满足条件的参数会有很多), 我们希望得到的分类器能够将正样本和负样本尽可能的分开. 亦即希望最大化所有样本到分类平面的最小距离.
 
-分类超平面定义为\\(y(\mathbf{x})=\mathbf{w}^T\phi(\mathbf{x})+b=0\\), 某点到该平面的距离为\\(\frac{|y(\mathbf{x})|}{\|\mathbf{w}\|}\\)
+分类超平面定义为\\(y(\mathbf{x})=\mathbf{w}^T\phi(\mathbf{x})+b=0\\), 某点到该平面的距离为\\(\frac{\|y(\mathbf{x})\|}{\|\mathbf{w}\|}\\)
 
 \\(arg\hspace{2 pt}\max_{\mathbf{w}, b}\{\frac{1}{\|\mathbf{w}\|}\min_{n}[t_n(\mathbf{w}^T\phi(\mathbf{x})+b)] \} \tag{1}\\)
 
