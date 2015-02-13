@@ -22,7 +22,13 @@ tags: []
 \\(arg\hspace{2 pt}\max_{\mathbf{w}, b}\{\frac{1}{\|\mathbf{w}\|}\min_{n}[t_n(\mathbf{w}^T\phi(\mathbf{x})+b)] \} \tag{1}\\)
 
 
-\\(arg\hspace{2 pt}\\)
+\\(\max_{\mathbf{w}, b}\\)
+\\(\{\frac{1}{\|\mathbf{w}\|}\min_{n}[t_n(\mathbf{w}^T\phi(\mathbf{x})+b)] \}\\)
+\\(\frac{1}{\|\mathbf{w}\|}\\)
+\\([t_n(\mathbf{w}^T\phi(\mathbf{x})+b)]\\)
+\\(\\)
+\\(\\)
+\\(\\)
 
 
 直接求解以上问题是非常困难的, 我们可以将其转换成一个更容易求解的问题.
