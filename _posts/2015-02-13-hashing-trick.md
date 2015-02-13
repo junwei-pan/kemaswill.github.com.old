@@ -7,7 +7,7 @@ tags: ['Machine Learning, SVM']
 ---
 {% include JB/setup %}
 
-本博客已经迁往[http://kemaswill.github.io](http://www.kemaswill.com/), 博客园这边也会继续更新, 欢迎关注~
+本博客已经迁往[http://kemaswill.github.io](http://kemaswill.github.io/), 博客园这边也会继续更新, 欢迎关注~
 
 在机器学习领域, kernel trick是一种非常有效的比较两个样本(对象)的方法. 给定两个对象$$ x_i, x_j \in \mathcal{X} $$, 用$$ k(x_i, x_j) :=\left <\phi(x_i), \phi(x_j)\right> $$来比较两个对象的特征$$ \phi(x_i), \phi(x_j) $$. kernel trick通过定义一个半正定核矩阵$$ k $$, 可以在不得到$$ \phi(x_i) $$的情况下隐式的得到高维向量$$ \phi(x_i) $$和$$ \phi(x_j) $$的内积, 大大减少计算时间. 但是Weinberger[1]等人提出, 在实际中, 尤其是文本分类领域, 原始的输入空间几乎是线性可分的, 但是, 训练集太大, 特征维度太高. 在这种情况下, 没必要把输入向量映射到一个高维的特征空间. 相反的, 有限的内存可能存不下核矩阵. 为此, Langford[2], Qinfeng Shi[3]等人提出了hashing trick, 把高维的输入向量哈希到一个低维的特征空间$$ \mathbb{R}^m $$.
 
