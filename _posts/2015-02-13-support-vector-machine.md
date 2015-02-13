@@ -21,6 +21,10 @@ tags: []
 
 \\(arg\hspace{2 pt}\max_{\mathbf{w}, b}\{\frac{1}{\|\mathbf{w}\|}\min_{n}[t_n(\mathbf{w}^T\phi(\mathbf{x})+b)] \} \tag{1}\\)
 
+
+\\(\max_i\\)
+
+
 直接求解以上问题是非常困难的, 我们可以将其转换成一个更容易求解的问题.
 
 如果我们将\\(\mathbf{w}\\)和\\(b\\)进行等比例的伸缩:\\(\mathbf{w}\to\kappa\mathbf{w}, b \to \kappa b\\), 则某点到分类超平面的距离是不变的. 所以我们可以利用这个特性将距离分类超平面最近的点到分类超平面的距离设置为\\(1\\), 那么所有的其他点会满足
