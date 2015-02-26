@@ -11,6 +11,7 @@ Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllb
 
 \\(x^2\\) is an inline formula
 
+[My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
 ## Update Author Attributes
 
 In `_config.yml` remember to specify your own data:
