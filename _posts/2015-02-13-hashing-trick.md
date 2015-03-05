@@ -23,8 +23,8 @@ $$ \bar{\phi}_j(x) = \sum_{i\in \mathcal{J}; h(i) = j}\phi_i(x) $$
 function hashing_vectorizer(features : array of string, N : integer):
     x := new vector[N]
     for f in features:
-    h := hash(f)     # f 是特征名, 也可以是特征的索引
-    x[h mod N] += 1  # 此处累加的是1, 也可以是特征的值
+        h := hash(f)     # f 是特征名, 也可以是特征的索引
+        x[h mod N] += 1  # 此处累加的是1, 也可以是特征的值
     return x
 {% endhighlight %}
 # 2. Signed Hash Trick
@@ -39,13 +39,13 @@ $$ \bar{\phi}_j(x) = \sum_{i\in \mathcal{J}; h(i) = j}\xi(i)\phi_i(x) $$
 function hashing_vectorizer(features : array of string, N : integer):
     x := new vector[N]
     for f in features:
-    h := hash(f)
-    idx := h mod N
+        h := hash(f)
+        idx := h mod N
            if ξ(f) == 1:
-           x[idx] += 1  # 此处累加的是1, 也可以是特征值
+            x[idx] += 1  # 此处累加的是1, 也可以是特征值
            else:
-           x[idx] -= 1  # 此处累加的是-1, 也可以是特征值 * -1
-           return x
+            x[idx] -= 1  # 此处累加的是-1, 也可以是特征值 * -1
+    return x
 {% endhighlight %}
 
 
