@@ -41,9 +41,9 @@ function hashing_vectorizer(features : array of string, N : integer):
     for f in features:
         h := hash(f)
         idx := h mod N
-           if ξ(f) == 1:
+        if ξ(f) == 1:
             x[idx] += 1  # 此处累加的是1, 也可以是特征值
-           else:
+        else:
             x[idx] -= 1  # 此处累加的是-1, 也可以是特征值 * -1
     return x
 {% endhighlight %}
