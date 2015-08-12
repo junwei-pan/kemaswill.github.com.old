@@ -13,7 +13,7 @@ Matrix Factorization is a method which focus only on the observed ratings only, 
 
 <h3 id="optimization-by-sgd">Optimization by SGD</h3>
 
-<p>The above cost function <script type="math/tex" id="MathJax-Element-24998">(2)</script> works as following</p>
+<p>The above cost function <script type="math/tex" id="MathJax-Element-26141">(2)</script> works as following</p>
 
 <blockquote>
   <p>Stochastic Gradient Descent for Matrix Factorization</p>
@@ -22,18 +22,18 @@ Matrix Factorization is a method which focus only on the observed ratings only, 
     <p>Util termination(Iterate the training data N times, or when the cost function converges)</p>
     
     <blockquote>
-      <p>For each rating <script type="math/tex" id="MathJax-Element-24999">r_{ui}</script> in the training set</p>
+      <p>For each rating <script type="math/tex" id="MathJax-Element-26142">r_{ui}</script> in the training set</p>
       
       <blockquote>
-        <p><script type="math/tex" id="MathJax-Element-25000">e_{ui} \stackrel{def}{=} r_{ui} - q_i^Tp_u</script> <br>
-        <script type="math/tex" id="MathJax-Element-25001">q_i \gets q_i + \gamma(e_{ui} p_u -\lambda q_i)</script> <br>
-        <script type="math/tex" id="MathJax-Element-25002">p_u \gets p_u + \gamma (e_{ui}q_i -\lambda p_u)</script></p>
+        <p><script type="math/tex" id="MathJax-Element-26143">e_{ui} \stackrel{def}{=} r_{ui} - q_i^Tp_u</script></p>
+        
+        <p><script type="math/tex" id="MathJax-Element-26144">q_i \gets q_i + \gamma(e_{ui} p_u -\lambda q_i)</script></p>
+        
+        <p><script type="math/tex" id="MathJax-Element-26145">p_u \gets p_u + \gamma (e_{ui}q_i -\lambda p_u)</script></p>
       </blockquote>
     </blockquote>
   </blockquote>
 </blockquote>
-
-
 
 <h3 id="adding-biases">Adding Biases</h3>
 
