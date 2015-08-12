@@ -36,7 +36,8 @@ We denote $N(u)$ as the sets of items for which user $u$ has expressed an implic
 
 Denote $A(u)$ as the set of attributes of a user $u$, and a factor vector $y_a \in \mathbb{R}^f$ corresponds to each attribu to describe a user through the set of user-associated attributes:$$\sum_{a\in A(u)}y^a\tag{5}$$
 
-Then the predicted rating can be modeled by$$\hat{r}_{ui}=\mu + b_i + b_u + q_i^T[p_u + |N(u)|^{-0.5}\sum_{i\in N(u)}x_i + \sum_{a\in A(u)}y^a]\tag{6}$$
+Then the predicted rating can be modeled by
+$$\hat{r}_{ui}=\mu + b_i + b_u + q_i^T[p_u + |N(u)|^{-0.5}\sum_{i\in N(u)}x_i + \sum_{a\in A(u)}y^a]\tag{6}$$
 
 Although Matrix Factorization can model such kind of implicit feedback and user or item attribute features, $Factorization Machine$ can handle such kind of features more directly. Assume that the user $u$ and item $i$ have feature vectors$f_u$ and $g_i$, we can formulate the following regression cost function:$$\min_w\sum_{u, i \in R}(R_{u, i} - w^T\begin{bmatrix}f_u \\ g_i\end{bmatrix})\tag{7}$$
 
