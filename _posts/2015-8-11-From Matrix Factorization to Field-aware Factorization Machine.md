@@ -57,18 +57,30 @@ We can think $$Pf_u \text{ and }Qg_i$$
 ##Field-Aware Factorization Machine
 Factorization Machine can effectively model the interaction between user and item, as well as the user side and item side features. But what if there are more than 3 dimension? For example, in the CTR prediction for computational advertising, we may have User, Advertisement as well as Publisher. There is interaction between the User and Advertisement, as well as interaction between User and Publisher. The Field-Aware Factorization Machine can handle all such interactions.
 The formulation of FFM is$$\min_w \sum_{i=1}^L(log(1 + exp(-y_I \phi(w, x_i)))  + \frac{\lambda}{2}||w||^2$$
-where$$\phi(w, x) = \sum_{j_1, j_2 \in C_2}\langle w_{j_1, f_2}, w_{j_2, f_1} \rangle x_{j_1}x_{j_2}$$where $f_1, f_2$ are respectively the field of $j_1$ and $j_2$, and $w_{j_1, f_2}$ and $w_{j_2, f_1}$ are two vectors with length $k$. Here the field means the dimension, for the recommender system, typically there are 2 dimensions: User and Item. For CTR prediction, there are typically 3 dimensions: User, Advertisement and Publisher. But actually we can build one dimension for each ID features, or even category features. 
+
+where
+
+$$\phi(w, x) = \sum_{j_1, j_2 \in C_2}\langle w_{j_1, f_2}, w_{j_2, f_1} \rangle x_{j_1}x_{j_2}$$
+
+where $f_1, f_2$ are respectively the field of $j_1$ and $j_2$, and $w_{j_1, f_2}$ and $w_{j_2, f_1}$ are two vectors with length $k$. Here the field means the dimension, for the recommender system, typically there are 2 dimensions: User and Item. For CTR prediction, there are typically 3 dimensions: User, Advertisement and Publisher. But actually we can build one dimension for each ID features, or even category features. 
 YuChin Juan has showed the formulation from linear model, to degree-2 polynomial model, to factorization machine and finally field-aware factorization machine models.
 The formulation of **linear model** is
+
 $$\phi(w, x) = w^Tx = \sum_{j\in C_1}w_jx_J$$
 where $C_1$ is the non-zero elements in $x$.
 The formulation of **Poly-2** is $$\phi(w, x) = \sum_{j_1, j_2 \in C_2}w_{j_1, j_2}x_{j_1}x_{j_2}$$
 where $C_2$ is the 2-combination of non-zero elements in $x$.
+
 The formulation of **factorization machine** is 
+
 $$\phi(w, x) = \sum_{j_1, j_2 \in C_2}\langle w_{j_1}, w_{j_2}x_{j_1}x_{j_2}\rangle$$
+
 where $w_{j_1}$ and $w_{j_2}$ are two vectors with length $k$, and $k$ is a used-defined parameter.
+
 The formulation of **Field-Aware Factorization Machine** is 
+
 $$\phi(w, x)=\sum_{j_1, j_2 \in C_2}\langle w_{j_1, f_2}, w_{j_2, f_1}\rangle x_{j_1}x_{j_2}$$
+
 where $f_1$ and $f_2$ are respectively the fields of $j_1$ and $j_2$.
 Here is a concrete example, say there is a sample:
 |User(Us)|Movie(Mo)|Gender(Ge)|Price(Pr)|
@@ -76,6 +88,7 @@ Here is a concrete example, say there is a sample:
 |YuChin(YC)|3Idiots(3I)|Comedy, Drama(Co, Dr)|$9.99|
 
 The $\phi(w, x)$ in FFM is 
+
 $$\langle w_{Us-Yu ,Mo} ,w_{ Mo-3I, Us}\rangle x_{Us-Yu} x_{Mo-3I}+ \langle w_{Us-Yu ,Ge} ,w_{ Ge-Co, Us}\rangle x_{Us-Yu} x_{Ge-Co} + \langle w_{ Us-Yu,Ge}, w_{Ge-Dr , Us}\rangle x_{Us-Yu} x_{Ge-Dr}  + \langle w_{ Us-Yu, Pr}, w_{ Pr, Us}\rangle x_{Us-Yu} x_{Pr} $$
 $$+ \langle w_{Mo-3I , Ge} ,w_{ Ge-Co, Mo}\rangle x_{Mo-3I} x_{Ge-Co}+ \langle w_{Mo-3I ,Ge} ,w_{Ge-Dr , Mo}\rangle x_{Mo-3I} x_{Ge-Dr}+ \langle w_{Mo-3I ,Pr} ,w_{ Pr, Mo}\rangle x_{Mo-3I} x_{Pr} $$
 $$+  \langle w_{Ge-Co ,Ge} ,w_{Ge-Dr , Ge}\rangle x_{Ge-Co} x_{Ge-Dr}+ \langle w_{Ge-Co ,Pr} ,w_{ Pr, Ge}\rangle x_{Ge-Co} x_{Pr}$$
