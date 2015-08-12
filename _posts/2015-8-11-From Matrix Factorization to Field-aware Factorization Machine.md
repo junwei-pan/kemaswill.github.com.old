@@ -41,6 +41,7 @@ Then the predicted rating can be modeled by$$\hat{r}_{ui}=\mu + b_i + b_u + q_i^
 Although Matrix Factorization can model such kind of implicit feedback and user or item attribute features, $Factorization Machine$ can handle such kind of features more directly. Assume that the user $u$ and item $i$ have feature vectors$f_u$ and $g_i$, we can formulate the following regression cost function:$$\min_w\sum_{u, i \in R}(R_{u, i} - w^T\begin{bmatrix}f_u \\ g_i\end{bmatrix})\tag{7}$$
 
 The following cost function is a only linear combination of user and item features, which doesn't consider the interaction between them. We can use the degree-2 polynomial mapping to hander such interaction:$$\min_{w_{t, s}\forall t, s}\sum_{u, v \in R}(r_{u, i}-\sum_{t'=1}^U\sum_{s'=1}^Vw_{t', s'}(f_u)_{t'}(g_i)_{s'})^2\tag{8}$$
+
 This is equivalent to $$\min_W\sum_{u, i\in R}(r_{u, i}-f_u^TWg_i)^2\tag{9}$$
 However, this setting fails for extreme sparse features. 
 Consider the most extreme situation where the $f_u$ and $g_i$ is the user ID and item ID features, then the optimal solution is $$w_{u, i}=\begin{cases}r_{u, i}  & \text{if } u, i \in R \\ 0, & \text{if } u, i \notin r\end{cases}\tag{10}$$
