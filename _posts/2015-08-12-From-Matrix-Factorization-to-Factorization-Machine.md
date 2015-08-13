@@ -9,8 +9,12 @@ tags: []
 
 ##Matrix Factorization
 In Recommender System, **Matrix Factorization** maps both the users and items to a joint latent factor space of dimension $k$, such that the user-item interaction can be modeled as the inner product in this space. That is to say, we map each user $i$ to a vector $p_i\in \mathbb{R}^k$, and each item $j$ to a vector $q_j \in \mathbb{R}^k$. For movie recommendation, each dimension of the latent factor space can be explained as a topic, say comedy v.s. drama, or other features such as amount of action, orientation to children and so on.
-Given the latent vector for user $u$ and item $i$, we can predict the interaction between them as $$\hat{r_{ui}}=q_i^Tp_u\tag{1}$$The major challenge is to compute the latent vector for each user and item. This is quite similar with **Singular Value Decomposition(SVD)**, which .... However, the matrix $M$ is needed to be complete when using SVD to decompose it. One method is to rely on imputation to fill in missing ratings to make the matrix dense. However, this will significantly increase the amount of data, and the inaccurate imputation might distort the data.
-Matrix Factorization is a method which focus only on the observed ratings only, while avoid overfitting by regularization. Here is the cost function for matrix factorization$$\min_{q^*, p^*}\sum_{(u, i) \in \kappa}(r_ui - q_i^Tp_u)^2 + \lambda (||q_i||^2 + ||p_u||^2)\tag{2}$$Here $\kappa$ is the set of $(u, i)$pairs for which $r_{ui}$ is known in the training set.
+Given the latent vector for user $u$ and item $i$, we can predict the interaction between them as $$\hat{r_{ui}}=q_i^Tp_u\tag{1}$$
+
+The major challenge is to compute the latent vector for each user and item. This is quite similar with **Singular Value Decomposition(SVD)**, which .... However, the matrix $M$ is needed to be complete when using SVD to decompose it. One method is to rely on imputation to fill in missing ratings to make the matrix dense. However, this will significantly increase the amount of data, and the inaccurate imputation might distort the data.
+Matrix Factorization is a method which focus only on the observed ratings only, while avoid overfitting by regularization. Here is the cost function for matrix factorization$$\min_{q^*, p^*}\sum_{(u, i) \in \kappa}(r_ui - q_i^Tp_u)^2 + \lambda (||q_i||^2 + ||p_u||^2)\tag{2}$$
+
+Here $\kappa$ is the set of $(u, i)$pairs for which $r_{ui}$ is known in the training set.
 
 ###Optimization by SGD
 The above cost function $(2)$ works as following
