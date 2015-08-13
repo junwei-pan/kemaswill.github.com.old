@@ -21,7 +21,7 @@ The above cost function $(2)$ works as following
 
 > Stochastic Gradient Descent for Matrix Factorization
 
-> > Util termination(Iterate the training data N times, or when the cost function converges)
+>> Util termination(Iterate the training data N times, or when the cost function converges)
 
 > > > For each rating $r_{ui}$ in the training set
 
